@@ -1,0 +1,25 @@
+{
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact"
+	],
+	"eslint.enable": true,
+	"eslint.format.enable": true,
+	"eslint.ignoreUntitled": true,
+	"eslint.lintTask.enable": true,
+	"eslint.useFlatConfig": true,
+	"js/ts.format.semicolons": "insert",
+	"js/ts.implicitProjectConfig.target": "ESNext",
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	}
+}
