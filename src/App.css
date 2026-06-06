@@ -1,0 +1,22 @@
+.app {
+	h1 {
+		font-weight: 900;
+	}
+
+	h1>span {
+		font-weight: 100;
+	}
+
+	pre {
+		font-size: 0.75rem;
+	}
+}
+
+.app_twin {
+	display: flex;
+	gap: 1rem;
+}
+
+.app_twin__item {
+	flex-basis: 50%;
+}
