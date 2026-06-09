@@ -3,6 +3,7 @@ import React from 'react';
 import { useDataQuery } from './hooks/useDataQuery';
 import { useEditState } from './hooks/useEditState';
 import { EditsList } from './EditsList';
+import { Grid } from './Grid';
 
 import './App.css';
 
@@ -11,14 +12,23 @@ type SelectEvent = React.ChangeEvent<HTMLSelectElement>;
 function App () {
 	const [ queryParams, setQueryParams	] = React.useState<string | undefined>(undefined);
 	const { data, error, isLoading } = useDataQuery(queryParams);
+	const rowData = data?.results;
+
 	const editAdd = useEditState((state) => state.add);
 
 	const handleChange = (event: SelectEvent) => {
 		setQueryParams(event.target.value);
 	};
-	const handleEdit = (index: number) => {
+	const handleEdit = (rowIndex: number) => {
 		if (data) {
-			editAdd(data.results[index]);
+			// const item = data.results.find(
+			// 	(result) => result.rowId === rowId,
+			// );
+			const item = data.results[rowIndex];
+
+			if (item) {
+				editAdd(item)!;
+			}
 		}
 	};
 
@@ -57,6 +67,9 @@ function App () {
 								: 'No data'
 						}
 					</pre>
+				</div>
+				<div className="app_twin__item">
+					<Grid rowData={rowData} />
 				</div>
 			</div>
 		</div>

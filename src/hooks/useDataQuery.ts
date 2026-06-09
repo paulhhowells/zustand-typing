@@ -1,14 +1,18 @@
 import { useQuery } from '@tanstack/react-query';
 
-type Result = { id: number; name: string; };
+type Result = { id: number; name: string; edit?: string; edits?: Array<string>; };
+
 interface ApiResponse {
 	query: string | null;
 	results: Array<Result>;
 }
 
-type DataResponse = {
+export type Row = Result & { rowIndex: number; };
+export type RowData = Array<Row>;
+
+interface DataResponse {
 	query: ApiResponse['query'];
-	results: Array<Result & { index: number; }>;
+	results: RowData;
 };
 
 async function fetchData (queryParams: string): Promise<DataResponse> {
@@ -28,7 +32,7 @@ async function fetchData (queryParams: string): Promise<DataResponse> {
 		query,
 		results: results.map((result, index) => ({
 			...result,
-			index,
+			rowIndex: index,
 		})),
 	};
 

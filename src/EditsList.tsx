@@ -1,7 +1,7 @@
 import { useEditState } from './hooks/useEditState';
 
 interface Props {
-	onEdit: (index: number) => void;
+	onEdit: (rowIndex: number) => void;
 	disableButtons?: boolean;
 	className?: string;
 }
@@ -24,7 +24,7 @@ export function EditsList ({
 			<ul>
 				{
 					editList.map((item) => (
-						<li key={item.index}>{ JSON.stringify(item) }</li>
+						<li key={item.rowIndex}>{ JSON.stringify(item) }</li>
 					))
 				}
 			</ul>

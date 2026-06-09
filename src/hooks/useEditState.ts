@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-type Indexed = { index: number; };
+type Indexed = { rowIndex: number; };
 
 interface EditState {
 	list: Array<Indexed>;
@@ -14,17 +14,18 @@ export const useEditState = create<EditState>()(
 			(state) => {
 				let list: Array<Indexed>;
 
-				console.log('add', item.index, item);
+				console.log('add', item.rowIndex, item);
 
-				// if an item with the same index already exists, replace it, otherwise add it to the list
-				const existingIndex = state.list.findIndex(element => element.index === item.index);
+				// if an item with the same rowIndex already exists, replace it, otherwise add it to the list
+				const existingIndex = state.list.findIndex(element => element.rowIndex === item.rowIndex);
 
 				if (existingIndex !== -1) {
-					list = [ ...state.list ];
-					list[existingIndex] = item;
+					// list = [ ...state.list ];
+					// list[existingIndex] = item;
+					list = state.list.with(existingIndex, item);
 				} else {
-					// find the first element with an index greater than the new item, and insert the new item before it
-					const insertIndex = state.list.findIndex((element: Indexed) => element.index > item.index);
+					// find the first element with an rowIndex greater than the new item, and insert the new item before it
+					const insertIndex = state.list.findIndex((element: Indexed) => element.rowIndex > item.rowIndex);
 
 					if (insertIndex !== -1) {
 						list = state.list.toSpliced(insertIndex, 0, item);
