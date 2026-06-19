@@ -21,8 +21,10 @@ start().then(() => {
 	createRoot(document.getElementById('root')!).render(
 		<StrictMode>
 			<QueryClientProvider client={queryClient}>
+				<FlagProvider>
 					<App />
 					<ReactQueryDevtools initialIsOpen={false} />
+				</FlagProvider>
 			</QueryClientProvider>
 		</StrictMode>,
 	);

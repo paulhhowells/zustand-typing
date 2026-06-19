@@ -6,6 +6,7 @@ import { EditsList } from './EditsList';
 import { Grid } from './Grid';
 
 import './App.css';
+import { Flag } from './Flag';
 
 type SelectEvent = React.ChangeEvent<HTMLSelectElement>;
 
@@ -67,6 +68,7 @@ function App () {
 								: 'No data'
 						}
 					</pre>
+					<Flag />
 				</div>
 				<div className="app_twin__item">
 					<Grid rowData={rowData} />

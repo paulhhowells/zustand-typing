@@ -1,5 +1,5 @@
 import { useEditState } from '../hooks/useEditState';
-import { useEditState } from './hooks/useEditState';
+import { Flag } from './Flag';
 
 interface Props {
 	onEdit: (rowIndex: number) => void;
@@ -29,6 +29,7 @@ export function EditsList ({
 					))
 				}
 			</ul>
+			<Flag />
 		</div>
 	);
 }
