@@ -10,7 +10,7 @@ import {
 } from 'ag-grid-enterprise';
 import { AgGridProvider, AgGridReact } from 'ag-grid-react';
 
-import type { Row, RowData } from '../hooks/useDataQuery';
+import type { Row, RowData } from '../../hooks/useDataQuery';
 
 const modules = [
 	AllCommunityModule,

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { useDataQuery } from './hooks/useDataQuery';
-import { useEditState } from './hooks/useEditState';
+import { useDataQuery } from '../hooks/useDataQuery';
+import { useEditState } from '../hooks/useEditState';
 import { EditsList } from './EditsList';
 import { Grid } from './Grid';
 

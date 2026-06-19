@@ -7,7 +7,6 @@ interface EditState {
 	add: (item: Indexed) => void;
 }
 export const useEditState = create<EditState>()(
-// export const useEditState = <T extends Indexed>() => create<EditState<T>>(
 	(set) => ({
 		list: [],
 		add: (item: Indexed) => set(
